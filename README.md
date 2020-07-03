@@ -21,19 +21,21 @@ I was watching a [LiveOverflow](https://www.youtube.com/channel/UClcE-kVhqyiHCcj
    3. In the `Login Shell` prompt, type `/bin/bash` and press `enter`
 7. Note down IP address of the machine. 
    1. Type `id addr`. Sample output:
-   ```bash
-   user@protostar:~$ ip addr
-    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN
-       link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-       inet 127.0.0.1/8 scope host lo
-       inet6 ::1/128 scope host
-          valid_lft forever preferred_lft forever
-    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN qlen 1000
-       link/ether 00:0c:29:38:63:e6 brd ff:ff:ff:ff:ff:ff
-       inet 192.168.183.128/24 brd 192.168.183.255 scope global eth0
-       inet6 fe80::20c:29ff:fe38:63e6/64 scope link
-          valid_lft forever preferred_lft forever
-    ```
+      ```bash
+      user@protostar:~$ ip addr
+       1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state UNKNOWN
+          link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+          inet 127.0.0.1/8 scope host lo
+          inet6 ::1/128 scope host
+             valid_lft forever preferred_lft forever
+       2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN qlen 1000
+          link/ether 00:0c:29:38:63:e6 brd ff:ff:ff:ff:ff:ff
+          inet 192.168.183.128/24 brd 192.168.183.255 scope global eth0
+          inet6 fe80::20c:29ff:fe38:63e6/64 scope link
+             valid_lft forever preferred_lft forever
+       ```
     2. The number next to `inet` in `eth0` section (`192.168.183.128` in the sample output) is the IP address of the machine.
     Note: This IP doesn't change very frequently.
-8. Connect to the machine using ssh. Type: `ssh user@<ip noted in previous step>` from a terminal. (Now Windows also has ssh and there is no need to install putty).
+8. Connect to the machine using ssh. Type: `ssh user@<ip noted in previous step>` (e.g. `ssh user@192.168.183.224`) from a terminal. (Now Windows also has ssh and there is no need to install putty).
+
+Note: Challenges are located in `/opt/protostar/bin`.
