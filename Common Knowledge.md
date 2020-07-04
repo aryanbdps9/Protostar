@@ -50,3 +50,6 @@ Then its memory layout will look like this:
    - `b *0x8048544`: Set a breakpoint at the address `0x8048544`
    - `x/s 0x8048544`: Examine the string stored at address `0x8048544`
    - `x/100x $esp`: Examine memory starting at `$esp`
+
+# Misc.
+- Format of format strings: `%[argument_index$][flags][width][.precision]conversion`
