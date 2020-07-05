@@ -51,6 +51,7 @@ Then its memory layout will look like this:
    - `x/s 0x8048544`: Examine the string stored at address `0x8048544`
    - `x/100x $esp`: Examine memory starting at `$esp`
    - `x/3i 0x80483cc`: Examine three instructions starting at memory location `0x80483cc`
+   - `backtrace`: Traces the sequence of function calls which lead to current state in execution. Warning: It won't work well if you've smashed the return pointer of any function.
 
 # Misc.
 - Format of format strings: `%[argument_index$][flags][width][.precision]conversion`
