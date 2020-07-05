@@ -47,12 +47,14 @@ Then its memory layout will look like this:
    1. Create a `~/.gdbinit` file with the following content: `set disassembly-flavor intel`. GDB executes this file when it starts. Feel free to add more lines.
 - [Common commands](https://ccrma.stanford.edu/~jos/stkintro/Useful_commands_gdb.html)
    - [Hooks](https://sourceware.org/gdb/onlinedocs/gdb/Hooks.html)
+   - [`command`](https://youtu.be/ZHghwsTRyzQ?t=290)
    - `info registers eax ebx esp`: Show values stored in `eax`, `ebx`, `esp`
    - `b *0x8048544`: Set a breakpoint at the address `0x8048544`
    - `x/s 0x8048544`: Examine the string stored at address `0x8048544`
    - `x/100x $esp`: Examine memory starting at `$esp`
    - `x/3i 0x80483cc`: Examine three instructions starting at memory location `0x80483cc`
    - `backtrace`: Traces the sequence of function calls which lead to current state in execution. Warning: It won't work well if you've smashed the return pointer of any function.
+   - [Set type of variables](https://youtu.be/TfJrU95q1J4?t=538)
 
 # Misc.
 - Format of format strings: `%[argument_index$][flags][width][.precision]conversion`
