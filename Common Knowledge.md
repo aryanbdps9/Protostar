@@ -46,6 +46,7 @@ Then its memory layout will look like this:
 - Setup
    1. Create a `~/.gdbinit` file with the following content: `set disassembly-flavor intel`. GDB executes this file when it starts. Feel free to add more lines.
 - [Common commands](https://ccrma.stanford.edu/~jos/stkintro/Useful_commands_gdb.html)
+   - [Hooks](https://sourceware.org/gdb/onlinedocs/gdb/Hooks.html)
    - `info registers eax ebx esp`: Show values stored in `eax`, `ebx`, `esp`
    - `b *0x8048544`: Set a breakpoint at the address `0x8048544`
    - `x/s 0x8048544`: Examine the string stored at address `0x8048544`
