@@ -42,6 +42,9 @@ Then its memory layout will look like this:
 
 ![Memory Layout](/images/memlayout_fncall.png)
 
+## Calling convention in 64 bit x86 machines
+Everything will be same, except first 6 args will be passed through registers in the following order: RDI, RSI, RDX,RCX, R8D, R9D. So, the args of a function will look like: f(RDI, RSI, RDX,RCX, R8D, R9D, RBP). Other args go on stack as usual.
+
 # GDB:
 - Setup
    1. Create a `~/.gdbinit` file with the following content: `set disassembly-flavor intel`. GDB executes this file when it starts. Feel free to add more lines.
